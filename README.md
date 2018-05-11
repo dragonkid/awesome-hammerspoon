@@ -67,6 +67,15 @@ hsaria2_secret = "token" -- YOUR OWN SECRET
 
 </details>
 
+#### Remapping Arrow Keys
+
+Remapping control+hjkl to arrow keys.
+
+> control + h => left
+> control + j => down
+> control + k => up
+> control + l => right
+
 ## Customization
 
 <details>
