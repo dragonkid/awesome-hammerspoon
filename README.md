@@ -71,10 +71,13 @@ hsaria2_secret = "token" -- YOUR OWN SECRET
 
 Remapping control+hjkl to arrow keys.
 
-> control + h => left
-> control + j => down
-> control + k => up
-> control + l => right
+<kbd>control</kbd> + <kbd>h</kbd> => <kbd>left</kbd>
+
+<kbd>control</kbd> + <kbd>j</kbd> => <kbd>down</kbd>
+
+<kbd>control</kbd> + <kbd>k</kbd> => <kbd>up</kbd>
+
+<kbd>control</kbd> + <kbd>l</kbd> => <kbd>right</kbd>
 
 ## Customization
 
