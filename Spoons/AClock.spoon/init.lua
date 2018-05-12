@@ -20,7 +20,7 @@ function obj:init()
         type = "text",
         text = "",
         textFont = "Impact",
-        textSize = 130,
+        textSize = 70,
         textColor = {hex="#1891C3"},
         textAlignment = "center",
     }
@@ -40,12 +40,12 @@ function obj:toggleShow()
         local mainScreen = hs.screen.mainScreen()
         local mainRes = mainScreen:fullFrame()
         self.canvas:frame({
-            x = (mainRes.w-300)/2,
+            x = (mainRes.w-600)/2,
             y = (mainRes.h-230)/2,
-            w = 300,
+            w = 600,
             h = 230
         })
-        self.canvas[1].text = os.date("%H:%M")
+        self.canvas[1].text = os.date("%Y-%m-%d %H:%M:%S")
         self.canvas:show()
         self.timer = hs.timer.doAfter(4, function()
             self.canvas:hide()

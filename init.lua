@@ -37,13 +37,13 @@ hs.loadSpoon("ModalMgr")
 if not hspoon_list then
     hspoon_list = {
         "AClock",
-        "BingDaily",
-        "CircleClock",
-        "ClipShow",
+--        "BingDaily",
+--        "CircleClock",
+--        "ClipShow",
         "CountDown",
-        "HCalendar",
-        "HSaria2",
-        "HSearch",
+--        "HCalendar",
+--        "HSaria2",
+--        "HSearch",
         "SpeedMenu",
         "WinWin",
         "FnMate",
@@ -78,7 +78,9 @@ if not hsapp_list then
     hsapp_list = {
         {key = 'f', name = 'Finder'},
         {key = 's', name = 'Safari'},
-        {key = 't', name = 'Terminal'},
+        {key = 't', name = 'iTerm'},
+        {key = 'p', name = 'PyCharm'},
+        {key = 'g', name = 'Google Chrome'},
         {key = 'v', id = 'com.apple.ActivityMonitor'},
         {key = 'y', id = 'com.apple.systempreferences'},
     }
