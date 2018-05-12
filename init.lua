@@ -81,6 +81,8 @@ if not hsapp_list then
         {key = 't', name = 'iTerm'},
         {key = 'p', name = 'PyCharm'},
         {key = 'g', name = 'Google Chrome'},
+        {key = 'w', name = 'WeChat'},
+        {key = 'd', name = 'DingTalk'},
         {key = 'v', id = 'com.apple.ActivityMonitor'},
         {key = 'y', id = 'com.apple.systempreferences'},
     }
