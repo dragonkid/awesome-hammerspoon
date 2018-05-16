@@ -80,6 +80,7 @@ if not hsapp_list then
         {key = 's', name = 'Safari'},
         {key = 't', name = 'iTerm'},
         {key = 'p', name = 'PyCharm'},
+        {key = 'i', name = 'Intellij IDEA CE'},
         {key = 'g', name = 'Google Chrome'},
         {key = 'w', name = 'WeChat'},
         {key = 'd', name = 'DingTalk'},
