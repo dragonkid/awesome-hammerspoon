@@ -82,6 +82,7 @@ if not hsapp_list then
         {key = 'p', name = 'PyCharm'},
         {key = 'i', name = 'Intellij IDEA CE'},
         {key = 'g', name = 'Google Chrome'},
+        {key = 'n', name = 'NeteaseMusic'},
         {key = 'w', name = 'WeChat'},
         {key = 'd', name = 'DingTalk'},
         {key = 'v', id = 'com.apple.ActivityMonitor'},
