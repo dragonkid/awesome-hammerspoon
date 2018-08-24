@@ -41,7 +41,7 @@ if not hspoon_list then
 --        "CircleClock",
 --        "ClipShow",
         "CountDown",
---        "HCalendar",
+        "HCalendar",
 --        "HSaria2",
 --        "HSearch",
         "SpeedMenu",
