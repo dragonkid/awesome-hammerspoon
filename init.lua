@@ -77,12 +77,13 @@ cmodal:bind('', 'tab', 'Toggle Cheatsheet', function() spoon.ModalMgr:toggleChea
 if not hsapp_list then
     hsapp_list = {
         { key = 'f', name = 'Finder' },
-        { key = 's', name = 'Safari' },
+        { key = 'c', name = 'Google Chrome Canary' },
         { key = 't', name = 'iTerm' },
         { key = 'p', name = 'PyCharm' },
         { key = 'i', name = 'Intellij IDEA CE' },
         { key = 'g', name = 'Google Chrome' },
         { key = 'x', name = '虾米音乐' },
+        { key = 'm', name = 'MWeb' },
         { key = 'w', name = 'WeChat' },
         { key = 'd', name = 'DingTalk' },
         { key = 'v', id = 'com.apple.ActivityMonitor' },
