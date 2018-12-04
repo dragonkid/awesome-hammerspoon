@@ -37,16 +37,16 @@ hs.loadSpoon("ModalMgr")
 if not hspoon_list then
     hspoon_list = {
         "AClock",
-        --        "BingDaily",
-        --        "CircleClock",
-        --        "ClipShow",
-        "CountDown",
+--        "BingDaily",
+--        "CircleClock",
+--        "ClipShow",
+--        "CountDown",
         "HCalendar",
-        --        "HSaria2",
-        --        "HSearch",
+--        "HSaria2",
+--        "HSearch",
         "SpeedMenu",
         "WinWin",
-        "FnMate",
+--        "FnMate",
     }
 end
 
@@ -59,13 +59,13 @@ end
 -- Then we create/register all kinds of modal keybindings environments.
 ----------------------------------------------------------------------------------------------------
 -- Register windowHints (Register a keybinding which is NOT modal environment with modal supervisor)
-hswhints_keys = hswhints_keys or { "alt", "tab" }
-if string.len(hswhints_keys[2]) > 0 then
-    spoon.ModalMgr.supervisor:bind(hswhints_keys[1], hswhints_keys[2], 'Show Window Hints', function()
-        spoon.ModalMgr:deactivateAll()
-        hs.hints.windowHints()
-    end)
-end
+--hswhints_keys = hswhints_keys or { "alt", "tab" }
+--if string.len(hswhints_keys[2]) > 0 then
+--    spoon.ModalMgr.supervisor:bind(hswhints_keys[1], hswhints_keys[2], 'Show Window Hints', function()
+--        spoon.ModalMgr:deactivateAll()
+--        hs.hints.windowHints()
+--    end)
+--end
 
 ----------------------------------------------------------------------------------------------------
 -- appM modal environment
@@ -82,7 +82,7 @@ if not hsapp_list then
         { key = 'p', name = 'PyCharm' },
         { key = 'i', name = 'Intellij IDEA CE' },
         { key = 'g', name = 'Google Chrome' },
-        { key = 'n', name = 'NeteaseMusic' },
+        { key = 'x', name = '虾米音乐' },
         { key = 'w', name = 'WeChat' },
         { key = 'd', name = 'DingTalk' },
         { key = 'v', id = 'com.apple.ActivityMonitor' },
@@ -107,12 +107,13 @@ for _, v in ipairs(hsapp_list) do
 end
 
 -- Then we register some keybindings with modal supervisor
-hsappM_keys = hsappM_keys or { "alt", "A" }
+hsappM_keys = hsappM_keys or { "shift", "tab" }
 if string.len(hsappM_keys[2]) > 0 then
     spoon.ModalMgr.supervisor:bind(hsappM_keys[1], hsappM_keys[2], "Enter AppM Environment", function()
         spoon.ModalMgr:deactivateAll()
         -- Show the keybindings cheatsheet once appM is activated
         spoon.ModalMgr:activate({ "appM" }, "#FFBD2E", true)
+        spoon.ModalMgr:toggleCheatsheet()
     end)
 end
 
