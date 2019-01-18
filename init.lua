@@ -80,7 +80,7 @@ if not hsapp_list then
         { key = 'c', name = 'Google Chrome Canary' },
         { key = 't', name = 'iTerm' },
         { key = 'p', name = 'PyCharm' },
-        { key = 'i', name = 'Intellij IDEA CE' },
+        { key = 'i', name = 'Intellij IDEA' },
         { key = 'g', name = 'Google Chrome' },
         { key = 'x', name = '虾米音乐' },
         { key = 'm', name = 'MWeb' },
