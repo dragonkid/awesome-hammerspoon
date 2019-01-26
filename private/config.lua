@@ -81,6 +81,13 @@ remap({ 'ctrl', 'cmd', 'alt', 'shift' }, 'l', pressFn({ 'cmd', 'alt', 'shift' },
 --- ):start()
 
 
-
---- mac media control
-
+-- move cursor between monitors
+hs.hotkey.bind({ 'shift' }, '`',
+    function()
+        local screen = hs.mouse.getCurrentScreen()
+        local nextScreen = screen:next()
+        local rect = nextScreen:fullFrame()
+        local center = hs.geometry.rectMidPoint(rect)
+        hs.mouse.setAbsolutePosition(center)
+    end
+)
