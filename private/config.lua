@@ -82,12 +82,12 @@ remap({ 'ctrl', 'cmd', 'alt', 'shift' }, 'l', pressFn({ 'cmd', 'alt', 'shift' },
 
 
 -- move cursor between monitors
-hs.hotkey.bind({ 'shift' }, '`',
-    function()
-        local screen = hs.mouse.getCurrentScreen()
-        local nextScreen = screen:next()
-        local rect = nextScreen:fullFrame()
-        local center = hs.geometry.rectMidPoint(rect)
-        hs.mouse.setAbsolutePosition(center)
-    end
-)
+--hs.hotkey.bind({ 'shift' }, '`',
+--    function()
+--        local screen = hs.mouse.getCurrentScreen()
+--        local nextScreen = screen:next()
+--        local rect = nextScreen:fullFrame()
+--        local center = hs.geometry.rectMidPoint(rect)
+--        hs.mouse.setAbsolutePosition(center)
+--    end
+--)
