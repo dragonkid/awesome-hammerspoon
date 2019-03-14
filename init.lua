@@ -85,6 +85,7 @@ if not hsapp_list then
         { key = 'm', name = 'MWeb' },
         { key = 'w', name = 'WeChat' },
         { key = 'd', name = 'DingTalk' },
+        { key = 'r', name = 'Reeder' },
         { key = 'v', id = 'com.apple.ActivityMonitor' },
         { key = 'y', id = 'com.apple.systempreferences' },
     }
