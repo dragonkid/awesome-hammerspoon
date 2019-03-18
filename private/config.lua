@@ -1,3 +1,4 @@
+--- remap left/down/up/right
 local function pressFn(mods, key)
     if key == nil then
         key = mods
@@ -91,3 +92,52 @@ remap({ 'ctrl', 'cmd', 'alt', 'shift' }, 'l', pressFn({ 'cmd', 'alt', 'shift' },
 --        hs.mouse.setAbsolutePosition(center)
 --    end
 --)
+
+
+--- remap left shift(tap to capslock, hold to shift)
+len = function(t)
+    local length = 0
+    for k, v in pairs(t) do
+    --hs.alert.show(k)
+        length = length + 1
+    end
+    return length
+end
+
+is_rightshift = function(evt)
+    return hs.keycodes.map[evt:getKeyCode()] == 'rightshift'
+end
+
+prev_modifiers = {}
+send_capslock = false
+
+remap_handler = function(event)
+    local curr_modifiers = event:getFlags()
+    if len(curr_modifiers) == 1 and len(prev_modifiers) == 0 and is_rightshift(event) then
+        --hs.alert.show('only rightshift down...')
+        send_capslock = true
+    elseif len(curr_modifiers) == 0 and is_rightshift(event) and send_capslock then
+        hs.eventtap.event.newSystemKeyEvent('CAPS_LOCK', true):post()
+        hs.timer.usleep(500)
+        hs.eventtap.event.newSystemKeyEvent( 'CAPS_LOCK', false):post();
+        --hs.alert.show('rightshift down...')
+        send_capslock = false
+    else
+        --hs.alert.show('other modifiers down')
+        send_capslock = false
+    end
+    prev_modifiers = curr_modifiers
+    return false
+end
+
+modifier_tap = hs.eventtap.new({hs.eventtap.event.types.flagsChanged}, remap_handler)
+modifier_tap:start()
+
+none_modifier_tap = hs.eventtap.new(
+        {hs.eventtap.event.types.keyDown},
+        function(evt)
+            send_capslock = false
+            return false
+        end
+)
+none_modifier_tap:start()
