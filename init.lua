@@ -108,7 +108,7 @@ for _, v in ipairs(hsapp_list) do
 end
 
 -- Then we register some keybindings with modal supervisor
-hsappM_keys = hsappM_keys or { "shift", "tab" }
+hsappM_keys = hsappM_keys or { "rightshift", "tab" }
 if string.len(hsappM_keys[2]) > 0 then
     spoon.ModalMgr.supervisor:bind(hsappM_keys[1], hsappM_keys[2], "Enter AppM Environment", function()
         spoon.ModalMgr:deactivateAll()

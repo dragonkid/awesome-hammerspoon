@@ -94,7 +94,7 @@ remap({ 'ctrl', 'cmd', 'alt', 'shift' }, 'l', pressFn({ 'cmd', 'alt', 'shift' },
 --)
 
 
---- remap left shift(tap to capslock, hold to shift)
+--- remap right shift(tap to capslock, hold to shift)
 len = function(t)
     local length = 0
     for k, v in pairs(t) do
@@ -105,25 +105,32 @@ len = function(t)
 end
 
 is_rightshift = function(evt)
-    return hs.keycodes.map[evt:getKeyCode()] == 'rightshift'
+    return evt:getKeyCode() ~= 255 and hs.keycodes.map[evt:getKeyCode()] == 'rightshift'
 end
 
 prev_modifiers = {}
 send_capslock = false
 
+capslock_up = function()
+    hs.eventtap.event.newSystemKeyEvent('CAPS_LOCK', false):post();
+end
+
+
 remap_handler = function(event)
     local curr_modifiers = event:getFlags()
+
     if len(curr_modifiers) == 1 and len(prev_modifiers) == 0 and is_rightshift(event) then
         --hs.alert.show('only rightshift down...')
         send_capslock = true
     elseif len(curr_modifiers) == 0 and is_rightshift(event) and send_capslock then
+        --hs.alert.show('rightshift up...')
         hs.eventtap.event.newSystemKeyEvent('CAPS_LOCK', true):post()
-        hs.timer.usleep(500)
-        hs.eventtap.event.newSystemKeyEvent( 'CAPS_LOCK', false):post();
-        --hs.alert.show('rightshift down...')
+        hs.timer.doAfter(0.1, capslock_up)
+        --hs.timer.usleep(500)
+        --hs.eventtap.event.newSystemKeyEvent('CAPS_LOCK', false):post();
         send_capslock = false
     else
-        --hs.alert.show('other modifiers down')
+        --hs.alert.show(event:getKeyCode())
         send_capslock = false
     end
     prev_modifiers = curr_modifiers
@@ -136,8 +143,10 @@ modifier_tap:start()
 none_modifier_tap = hs.eventtap.new(
         {hs.eventtap.event.types.keyDown},
         function(evt)
-            send_capslock = false
+            if not is_rightshift(evt) then
+                send_capslock = false
+            end
             return false
         end
 )
-none_modifier_tap:start()
+--none_modifier_tap:start()
