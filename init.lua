@@ -44,7 +44,7 @@ if not hspoon_list then
         "HCalendar",
 --        "HSaria2",
 --        "HSearch",
-        "SpeedMenu",
+--        "SpeedMenu",
         "WinWin",
 --        "FnMate",
     }
@@ -77,17 +77,14 @@ cmodal:bind('', 'tab', 'Toggle Cheatsheet', function() spoon.ModalMgr:toggleChea
 if not hsapp_list then
     hsapp_list = {
         { key = 'f', name = 'Finder' },
-        { key = 'c', name = 'Google Chrome Canary' },
         { key = 't', name = 'iTerm' },
         { key = 'i', name = 'Intellij IDEA' },
         { key = 'g', name = 'Google Chrome' },
-        { key = 'x', name = '虾米音乐' },
+        { key = 'v', name = 'Visual Studio Code' },
         { key = 'm', name = 'MWeb' },
         { key = 'w', name = 'WeChat' },
-        { key = 'd', name = 'DingTalk' },
-        { key = 'r', name = 'Reeder' },
-        { key = 'v', id = 'com.apple.ActivityMonitor' },
-        { key = 'y', id = 'com.apple.systempreferences' },
+        { key = 'a', id = 'com.apple.ActivityMonitor' },
+        { key = 's', id = 'com.apple.systempreferences' },
     }
 end
 for _, v in ipairs(hsapp_list) do

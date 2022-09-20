@@ -125,9 +125,9 @@ remap_handler = function(event)
     elseif len(curr_modifiers) == 0 and is_rightshift(event) and send_capslock then
         --hs.alert.show('rightshift up...')
         hs.eventtap.event.newSystemKeyEvent('CAPS_LOCK', true):post()
-        hs.timer.doAfter(0.1, capslock_up)
-        --hs.timer.usleep(500)
-        --hs.eventtap.event.newSystemKeyEvent('CAPS_LOCK', false):post();
+        --hs.timer.doAfter(0.1, capslock_up)
+        hs.timer.usleep(500)
+        hs.eventtap.event.newSystemKeyEvent('CAPS_LOCK', false):post();
         send_capslock = false
     else
         --hs.alert.show(event:getKeyCode())
@@ -143,10 +143,8 @@ modifier_tap:start()
 none_modifier_tap = hs.eventtap.new(
         {hs.eventtap.event.types.keyDown},
         function(evt)
-            if not is_rightshift(evt) then
-                send_capslock = false
-            end
+            send_capslock = false
             return false
         end
 )
---none_modifier_tap:start()
+none_modifier_tap:start()
