@@ -94,7 +94,7 @@ remap({ 'ctrl', 'cmd', 'alt', 'shift' }, 'l', pressFn({ 'cmd', 'alt', 'shift' },
 --)
 
 
---- remap right shift(tap to capslock, hold to shift)
+-- remap right shift(tap to capslock, hold to shift)
 len = function(t)
     local length = 0
     for k, v in pairs(t) do
@@ -140,6 +140,7 @@ end
 modifier_tap = hs.eventtap.new({hs.eventtap.event.types.flagsChanged}, remap_handler)
 modifier_tap:start()
 
+-- work on key combination
 none_modifier_tap = hs.eventtap.new(
         {hs.eventtap.event.types.keyDown},
         function(evt)
@@ -148,3 +149,8 @@ none_modifier_tap = hs.eventtap.new(
         end
 )
 none_modifier_tap:start()
+
+
+-- switch between iterm2 and intellij idea
+switcher = hs.window.switcher.new{'iTerm2', 'IntelliJ IDEA'}
+hs.hotkey.bind('ctrl', '`', 'Next window', function()switcher:next()end)
