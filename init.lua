@@ -78,7 +78,7 @@ if not hsapp_list then
     hsapp_list = {
         { key = 'f', name = 'Finder' },
         { key = 't', name = 'iTerm' },
-        { key = 'i', name = 'Intellij IDEA' },
+        --{ key = 'i', name = 'Intellij IDEA' },
         { key = 'g', name = 'Google Chrome' },
         { key = 'v', name = 'Visual Studio Code' },
         { key = 'm', name = 'MWeb' },

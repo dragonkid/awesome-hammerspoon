@@ -152,8 +152,9 @@ none_modifier_tap:start()
 
 
 -- switch between iterm2 and intellij idea
-switcher = hs.window.switcher.new{'iTerm2', 'IntelliJ IDEA'}
+switcher = hs.window.switcher.new{'iTerm2', 'Code - Insiders'}
 switcher.ui.showThumbnails = false
 switcher.ui.showSelectedThumbnail = false
 switcher.ui.showTitles = false
+hs.window.animationDuration = 0
 hs.hotkey.bind('ctrl', '`', 'Next window', function()switcher:next()end)
