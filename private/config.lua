@@ -152,9 +152,33 @@ none_modifier_tap:start()
 
 
 -- switch between iterm2 and intellij idea
-switcher = hs.window.switcher.new{'iTerm2', 'Code - Insiders'}
+switcher = hs.window.switcher.new { 'iTerm2', 'Cursor' }
 switcher.ui.showThumbnails = false
 switcher.ui.showSelectedThumbnail = false
 switcher.ui.showTitles = false
 hs.window.animationDuration = 0
-hs.hotkey.bind('ctrl', '`', 'Next window', function()switcher:next()end)
+-- hs.hotkey.bind('ctrl', '`', 'Next window', function()switcher:next()end)
+
+
+
+ITERM2_TRIGGER = hs.timer.doEvery(7, function()
+    hs.notify.new({ title = "Hammerspoon", informativeText = "iTerm2 trigger..." }):send()
+    hs.application.launchOrFocus("/Applications/iTerm.app/Contents/MacOS/iTerm2")
+end)
+
+CURSOR_TRIGGER = hs.timer.doEvery(13, function()
+    hs.notify.new({ title = "Hammerspoon", informativeText = "Cursor trigger..." }):send()
+    hs.application.launchOrFocus("/Applications/Cursor.app")
+end)
+
+hs.hotkey.bind({ "cmd", "shift", "ctrl" }, "W", function()
+    hs.notify.new({ title = "Hammerspoon", informativeText = "Hello World start..." }):send()
+    ITERM2_TRIGGER:start()
+    CURSOR_TRIGGER:start()
+end)
+
+hs.hotkey.bind({ "cmd", "shift", "ctrl" }, "E", function()
+    hs.notify.new({ title = "Hammerspoon", informativeText = "Hello World stop..." }):send()
+    ITERM2_TRIGGER:stop()
+    CURSOR_TRIGGER:stop()
+end)
