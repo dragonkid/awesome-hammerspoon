@@ -152,7 +152,7 @@ none_modifier_tap:start()
 
 
 -- switch between iterm2 and intellij idea
-switcher = hs.window.switcher.new { 'iTerm2', 'Cursor' }
+switcher = hs.window.switcher.new { 'iTerm2' }
 switcher.ui.showThumbnails = false
 switcher.ui.showSelectedThumbnail = false
 switcher.ui.showTitles = false
@@ -164,11 +164,6 @@ hs.window.animationDuration = 0
 ITERM2_TRIGGER = hs.timer.doEvery(7, function()
     hs.notify.new({ title = "Hammerspoon", informativeText = "iTerm2 trigger..." }):send()
     hs.application.launchOrFocus("/Applications/iTerm.app/Contents/MacOS/iTerm2")
-end)
-
-CURSOR_TRIGGER = hs.timer.doEvery(13, function()
-    hs.notify.new({ title = "Hammerspoon", informativeText = "Cursor trigger..." }):send()
-    hs.application.launchOrFocus("/Applications/Cursor.app")
 end)
 
 hs.hotkey.bind({ "cmd", "shift", "ctrl" }, "W", function()
